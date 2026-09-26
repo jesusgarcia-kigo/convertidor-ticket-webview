@@ -89,6 +89,8 @@
   --pay-soft: #dff7e7;
   /* Texto verde legible (16px) sobre el fondo · 5.3:1 */
   --pay-text: #007a2e;
+  /* CTA de éxito: texto blanco ≥5:1 en todo el degradado (AA a 17px) */
+  --success-grad: linear-gradient(135deg, #15803d 0%, #066e2c 100%);
 
   --radius: 14px;
 }
@@ -172,6 +174,28 @@
   .btn-kigo:hover {
     filter: brightness(1.03);
   }
+  /* CTA de cierre en éxito: misma forma que .btn-kigo, en verde accesible */
+  .btn-success {
+    background: var(--success-grad);
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    box-shadow:
+      0 8px 20px -10px rgba(6, 110, 44, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    transition:
+      transform 0.12s ease,
+      box-shadow 0.2s ease,
+      filter 0.2s ease;
+  }
+  .btn-success:hover {
+    filter: brightness(1.04);
+  }
+  .btn-success:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px -6px rgba(6, 110, 44, 0.5);
+  }
+
   .btn-kigo:active {
     transform: translateY(1px);
     box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.15);
