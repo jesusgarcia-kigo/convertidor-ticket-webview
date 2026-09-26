@@ -52,7 +52,7 @@ genérico. **Pendiente de confirmar con backend** qué devuelve en error.
 
 ## 3. Cerrar el webview (app nativa)
 
-En la pantalla de éxito, el botón **Confirmar** pide a la app contenedora que
+En la pantalla de éxito, el botón **¡Listo! Salir con Kigo** pide a la app contenedora que
 cierre el webview (`src/lib/webview-bridge.ts`). El frontend envía el mismo
 mensaje por los tres canales; la app solo necesita escuchar el suyo:
 
