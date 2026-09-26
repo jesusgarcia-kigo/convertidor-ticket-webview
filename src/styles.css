@@ -89,8 +89,8 @@
   --pay-soft: #dff7e7;
   /* Texto verde legible (16px) sobre el fondo · 5.3:1 */
   --pay-text: #007a2e;
-  /* CTA de éxito: texto blanco ≥5:1 en todo el degradado (AA a 17px) */
-  --success-grad: linear-gradient(135deg, #15803d 0%, #066e2c 100%);
+  /* CTA de éxito: verde salvia, texto blanco 4.5–5.1:1 (AA a 17px) */
+  --success-grad: linear-gradient(135deg, #2f855a 0%, #2a7d4f 100%);
 
   --radius: 14px;
 }
@@ -181,8 +181,8 @@
     font-weight: 600;
     letter-spacing: -0.005em;
     box-shadow:
-      0 8px 20px -10px rgba(6, 110, 44, 0.55),
-      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      0 8px 18px -10px rgba(42, 125, 79, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14);
     transition:
       transform 0.12s ease,
       box-shadow 0.2s ease,
@@ -193,7 +193,7 @@
   }
   .btn-success:active {
     transform: translateY(1px);
-    box-shadow: 0 3px 10px -6px rgba(6, 110, 44, 0.5);
+    box-shadow: 0 3px 10px -6px rgba(42, 125, 79, 0.45);
   }
 
   .btn-kigo:active {

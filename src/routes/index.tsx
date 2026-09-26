@@ -370,7 +370,7 @@ function SuccessView({
       >
         <button
           onClick={() => closeWebView()}
-          className="btn-success flex h-[52px] w-full items-center justify-center rounded-full px-5 text-[17px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#15803D] focus-visible:ring-offset-2"
+          className="btn-success flex h-[52px] w-full items-center justify-center rounded-full px-5 text-[17px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2F855A] focus-visible:ring-offset-2"
         >
           ¡Listo! Salir con Kigo
         </button>
