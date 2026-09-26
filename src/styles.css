@@ -1,0 +1,259 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+/* Teléfonos bajos (iPhone SE/mini): compacta la pantalla para evitar scroll */
+@custom-variant short (@media (max-height: 740px));
+
+/*
+ * Kigo — Appless Experience Design System
+ * Mobile-first webview: convertir boleto físico a digital.
+ * Background never pure white. Cards on warm off-white #FEF9F8.
+ */
+
+@theme inline {
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-kigo: var(--kigo);
+  --color-kigo-foreground: var(--kigo-foreground);
+  --color-kigo-soft: var(--kigo-soft);
+  --color-pay: var(--pay);
+  --color-pay-soft: var(--pay-soft);
+  --color-kigo-title: var(--kigo-title);
+  --color-pay-text: var(--pay-text);
+  --color-surface: var(--surface);
+
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  /* Kigo Design System v2 — Umbral palette · never pure white */
+  --background: #fef9f8; /* Umbral 50 */
+  --foreground: #0f172b; /* Slate 900 */
+  --surface: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #0f172b;
+  --popover: #ffffff;
+  --popover-foreground: #0f172b;
+
+  --primary: #0f172b; /* Slate 900 */
+  --primary-foreground: #fef9f8;
+  --secondary: #f6eeed; /* Umbral 100 */
+  --secondary-foreground: #1a1a1a;
+  --muted: #f6eeed; /* Umbral 100 */
+  --muted-foreground: #62748e; /* Slate 500 */
+  --accent: #f6eeed;
+  --accent-foreground: #1a1a1a;
+  --destructive: #dc2626; /* Red 600 */
+  --destructive-foreground: #ffffff;
+  --border: #e9dedd; /* Umbral 200 */
+  --input: #e9dedd;
+  --ring: #ff6900; /* Kigo 500 */
+
+  /* Kigo brand — exact */
+  --kigo: #ff6900; /* Kigo 500 */
+  --kigo-foreground: #ffffff;
+  --kigo-soft: #ffe9d6; /* Kigo 100 */
+  /* "Kigo" en títulos grandes: naranja casi de marca, 3.4:1 (AA texto grande) */
+  --kigo-title: #eb5a00;
+  --kigo-grad: linear-gradient(135deg, #ff8848 0%, #ff6900 100%);
+
+  /* Success green — confirmation states */
+  --pay: #00a63e;
+  --pay-soft: #dff7e7;
+  /* Texto verde legible (16px) sobre el fondo · 5.3:1 */
+  --pay-text: #007a2e;
+
+  --radius: 14px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html,
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+  html {
+    overflow-x: hidden;
+    overscroll-behavior: none;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: pan-y;
+    user-select: none;
+  }
+  /* Allow text selection in inputs */
+  input,
+  textarea {
+    user-select: text;
+    touch-action: auto;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Phone frame for desktop preview */
+@layer components {
+  .phone-frame {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100dvh;
+    margin-inline: auto;
+    background: var(--color-background);
+    position: relative;
+  }
+
+  .kigo-header {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    padding: 18px 20px 8px;
+  }
+
+  .kigo-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  /* Kigo Tier 1 CTAs — semantic gradients, 46–50px pill, never flat */
+  .btn-kigo {
+    background: var(--kigo-grad);
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    box-shadow:
+      0 3px 10px -2px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transition:
+      transform 0.12s ease,
+      box-shadow 0.2s ease,
+      filter 0.2s ease;
+  }
+  .btn-kigo:hover {
+    filter: brightness(1.03);
+  }
+  .btn-kigo:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* ─── Success moment (motion.md · the one place with personality) ─── */
+@media (prefers-reduced-motion: no-preference) {
+  .success-ring {
+    animation: success-ring 1100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .success-rise {
+    animation: success-rise 520ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .check-fill {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: success-pop 560ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  .check-ring {
+    animation: draw-stroke 700ms cubic-bezier(0.65, 0, 0.35, 1) 120ms both;
+  }
+  .check-mark {
+    animation: draw-stroke 380ms cubic-bezier(0.65, 0, 0.35, 1) 520ms both;
+  }
+}
+
+@keyframes success-glow {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes success-ring {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+@keyframes success-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes draw-stroke {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes success-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .success-ring {
+    display: none;
+  }
+}
